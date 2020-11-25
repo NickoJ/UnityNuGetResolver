@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 
 namespace NuGetResolver.Utilities
 {
@@ -14,7 +15,7 @@ namespace NuGetResolver.Utilities
 
             if (!Path.IsPathRooted(path))
             {
-                var executingFolder = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+                var executingFolder = Process.GetCurrentProcess().MainModule?.FileName;
                 executingFolder = Path.GetDirectoryName(executingFolder);
 
                 path = Path.Combine(executingFolder!, path);

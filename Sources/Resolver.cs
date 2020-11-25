@@ -172,7 +172,7 @@ namespace NuGetResolver
             }            
         }
 
-        private static bool TryLoadLibrariesFolder(in DirectoryInfo dir, out LibrariesFolder? folder)
+        private static bool TryLoadLibrariesFolder(in DirectoryInfo dir, out LibrariesFolder folder)
         {
             var foundFiles = dir.GetFiles(Const.FileNames.LibrariesFolderManifestName);
             foreach (var file in foundFiles)
